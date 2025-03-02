@@ -10,6 +10,9 @@ $flutter create demo01
 # Download dependencies
 $flutter pub get
 
+# Flutter lint
+$flutter analyze
+
 # Run app
 $flutter run
 ```
