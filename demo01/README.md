@@ -13,6 +13,9 @@ $flutter pub get
 # Flutter lint
 $flutter analyze
 
+# Formatting code
+$dart format .
+
 # Run app
 $flutter run
 ```
