@@ -18,7 +18,11 @@ class CartScreenState extends State<CartScreen> {
       builder:
           (context, value, child) => Scaffold(
             appBar: AppBar(
-              title: Text("Cart", style: TextStyle(color: Colors.blue)),
+              title: Text(
+                key: Key("cart_title"),
+                "Cart",
+                style: TextStyle(color: Colors.blue),
+              ),
               backgroundColor: Colors.white,
             ),
             body: SafeArea(

@@ -22,6 +22,7 @@ class ProductScreenState extends State<ProductScreen> {
         toolbarHeight: 50,
         actions: [
           InkWell(
+            key: Key("cart"),
             onTap: () {
               Navigator.push(
                 context,

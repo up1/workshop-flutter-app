@@ -39,4 +39,20 @@ void main() {
     // Verify that the product is added to cart
     expect(find.text("1"), findsOneWidget);
   });
+
+  testWidgets('Add more than one product to cart', (WidgetTester tester) async {
+    // Build our app and trigger a frame.
+    await tester.pumpWidget(const MyApp());
+
+    // Tap key="add" to add a product to cart
+    await tester.tap(find.byKey(Key("add")).first);
+    await tester.pump();
+
+    // Tap key="add" in second position to add a product to cart
+    await tester.tap(find.byKey(Key("add")).at(1));
+    await tester.pump();
+
+    // Verify that the product is added to cart
+    expect(find.text("2"), findsOneWidget);
+  });
 }
