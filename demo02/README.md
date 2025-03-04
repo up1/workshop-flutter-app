@@ -5,3 +5,10 @@
 * Data
   * Model
   * Repository
+
+## Step to run ?
+```
+$flutter pub get
+$dart format .
+$flutter analyze
+```
