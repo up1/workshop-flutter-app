@@ -70,8 +70,9 @@ class ProductScreenState extends State<ProductScreen> {
       ),
       body: SafeArea(
         child: SingleChildScrollView(
-          child: SizedBox(
-            height: screenSize.height * 0.24,
+          child: Container(
+            margin: EdgeInsets.symmetric(vertical: 10),
+            height: 200,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: prds.length,
