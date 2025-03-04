@@ -12,7 +12,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:demo02/main.dart';
 
 void main() {
-  testWidgets('List of products', (WidgetTester tester) async {
+  testWidgets('List of products in first page', (WidgetTester tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(const MyApp());
 
@@ -25,5 +25,18 @@ void main() {
 
     // Verify that the cart icon is displayed.
     expect(find.byIcon(Icons.shopping_cart_rounded), findsOneWidget);
+  });
+
+  testWidgets('Add a product to cart', (WidgetTester tester) async {
+    // Build our app and trigger a frame.
+    await tester.pumpWidget(const MyApp());
+    expect(find.text("0"), findsOneWidget);
+
+    // Tap key="add" to add a product to cart
+    await tester.tap(find.byKey(Key("add")).first);
+    await tester.pump();
+
+    // Verify that the product is added to cart
+    expect(find.text("1"), findsOneWidget);
   });
 }

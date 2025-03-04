@@ -75,12 +75,12 @@ class ProductScreenState extends State<ProductScreen> {
             height: 200,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
-              itemCount: prds.length,
+              itemCount: products.length,
               itemBuilder:
                   (context, index) => ProductItem(
                     screenSize: screenSize,
-                    image: prds[index]["image"] ?? "",
-                    itemName: prds[index]["name"] ?? "",
+                    image: products[index]["image"] ?? "",
+                    itemName: products[index]["name"] ?? "",
                   ),
             ),
           ),
@@ -90,7 +90,8 @@ class ProductScreenState extends State<ProductScreen> {
   }
 }
 
-final prds = [
+// Mock data for testing
+final products = [
   {
     "name": "ABCD",
     "image":

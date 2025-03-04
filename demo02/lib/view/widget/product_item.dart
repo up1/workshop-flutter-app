@@ -49,6 +49,7 @@ class ProductItem extends StatelessWidget {
           Consumer<ProductsViewModel>(
             builder:
                 (context, value, child) => InkWell(
+                  key: Key("add"),
                   onTap: () {
                     value.add(image, itemName);
                   },
