@@ -30,6 +30,7 @@ class CartScreenState extends State<CartScreen> {
                 height: screenSize.height,
                 width: double.infinity,
                 child: ListView.builder(
+                  key: Key("cart_list"),
                   itemCount: value.count,
                   itemBuilder: (context, index) {
                     return Dismissible(
