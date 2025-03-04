@@ -45,7 +45,18 @@ class ProductItem extends StatelessWidget {
               imageUrl: image,
             ),
           ),
-          Padding(padding: const EdgeInsets.all(4.0), child: Text(itemName)),
+          Padding(
+            padding: const EdgeInsets.all(4.0),
+            child: SizedBox(
+              width: double.infinity,
+              child: Text(
+                itemName,
+                overflow: TextOverflow.ellipsis,
+                textAlign: TextAlign.center,
+                maxLines: 1,
+              ),
+            ),
+          ),
           Consumer<ProductsViewModel>(
             builder:
                 (context, value, child) => InkWell(

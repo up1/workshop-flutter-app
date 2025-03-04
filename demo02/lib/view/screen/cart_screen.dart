@@ -26,7 +26,7 @@ class CartScreenState extends State<CartScreen> {
                 height: screenSize.height,
                 width: double.infinity,
                 child: ListView.builder(
-                  itemCount: value.lst.length,
+                  itemCount: value.count,
                   itemBuilder: (context, index) {
                     return Dismissible(
                       key: UniqueKey(),
@@ -39,8 +39,8 @@ class CartScreenState extends State<CartScreen> {
                       },
                       child: CartItem(
                         screenSize: screenSize,
-                        image: value.lst[index].image,
-                        itemName: value.lst[index].name,
+                        image: value.get(index).image,
+                        itemName: value.get(index).name,
                         del: value.del,
                       ),
                     );

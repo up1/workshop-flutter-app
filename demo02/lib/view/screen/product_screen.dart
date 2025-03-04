@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:demo02/view/screen/cart.dart';
+import 'package:demo02/view/screen/cart_screen.dart';
 import 'package:demo02/view/widget/cart_counter.dart';
 import 'package:demo02/view/widget/product_item.dart';
 import 'package:demo02/viewmodel/products_viewmodel.dart';
@@ -52,7 +52,7 @@ class ProductScreenState extends State<ProductScreen> {
                     child: Consumer<ProductsViewModel>(
                       builder:
                           (context, value, child) =>
-                              CartCounter(count: value.lst.length.toString()),
+                              CartCounter(count: value.count.toString()),
                     ),
                   ),
                 ],
@@ -93,33 +93,33 @@ class ProductScreenState extends State<ProductScreen> {
 // Mock data for testing
 final products = [
   {
-    "name": "ABCD",
+    "name": "Essence Mascara Lash Princess",
     "image":
-        "https://lapntab.com/storage/app/public/images/products/oppo-a12_1.jpg",
+        "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png",
   },
   {
-    "name": "QQWE",
+    "name": "yeshadow Palette with Mirror",
     "image":
-        "https://lapntab.com/storage/app/public/images/products/oppo-f15_1.jpg",
+        "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/thumbnail.png",
   },
   {
-    "name": "WWSA",
+    "name": "Powder Canister",
     "image":
-        "https://lapntab.com/storage/app/public/images/products/reno-5_1.jpg",
+        "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/thumbnail.png",
   },
   {
-    "name": "EXMP",
+    "name": "Red Lipstick",
     "image":
-        "https://lapntab.com/storage/app/public/images/products/apple-iphone-11-pro-64gb_1.jpg",
+        "https://cdn.dummyjson.com/products/images/beauty/Red%20Lipstick/thumbnail.png",
   },
   {
-    "name": "SADS",
+    "name": "Red Nail Polish",
     "image":
-        "https://lapntab.com/storage/app/public/images/products/hp-envy-13-ah1011tx-8th-gen_1.jpg",
+        "https://cdn.dummyjson.com/products/images/beauty/Red%20Nail%20Polish/thumbnail.png",
   },
   {
-    "name": "SADS",
+    "name": "Calvin Klein CK One",
     "image":
-        "https://lapntab.com/storage/app/public/images/products/hp-pavilion-15-cs1034tx-i7_1.jpg",
+        "https://cdn.dummyjson.com/products/images/fragrances/Calvin%20Klein%20CK%20One/thumbnail.png",
   },
 ];

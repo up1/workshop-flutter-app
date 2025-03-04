@@ -49,9 +49,16 @@ class CartItem extends StatelessWidget {
               imageUrl: image,
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(4.0),
-            child: Text(itemName, style: TextStyle(fontSize: 22)),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: Text(
+                itemName,
+                style: TextStyle(fontSize: 20),
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
           ),
         ],
       ),
