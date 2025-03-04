@@ -19,5 +19,11 @@ void main() {
     // Verify that the product list is displayed.
     expect(find.byType(ProductItem), findsWidgets);
     expect(find.text("Demo of Products"), findsOneWidget);
+
+    // Verify that the product list is not empty.
+    expect(find.byType(ProductItem), findsNWidgets(4));
+
+    // Verify that the cart icon is displayed.
+    expect(find.byIcon(Icons.shopping_cart_rounded), findsOneWidget);
   });
 }
