@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
-class HomePageV1 extends StatelessWidget {
-  const HomePageV1({super.key});
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,7 +18,7 @@ class HomePageV1 extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
-              'สวัสดีสมาชิก, 0863816736',
+              'สวัสดีสมาชิค, 0863816736',
               style: TextStyle(fontSize: 14, color: Colors.white),
             ),
             Row(
@@ -143,22 +148,6 @@ class HomePageV1 extends StatelessWidget {
             ),
           ],
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'หน้าหลัก'),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.card_giftcard),
-            label: 'บิ๊กพอยต์',
-          ),
-          BottomNavigationBarItem(icon: Icon(Icons.grid_view), label: 'สินค้า'),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.favorite),
-            label: 'ลิสต์ของฉัน',
-          ),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'บัญชี'),
-        ],
       ),
     );
   }
