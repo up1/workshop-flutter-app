@@ -1,3 +1,4 @@
+import 'package:demo_layout/screens/cart/account_screen.dart';
 import 'package:demo_layout/screens/favorite/widgets/product_card.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +20,13 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
         actions: [
           IconButton(
             icon: Icon(Icons.shopping_cart, color: Colors.black),
-            onPressed: () {},
+            onPressed: () {
+              // Go to cart screen and move to router class
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const CartScreen()),
+              );
+            },
           ),
         ],
       ),
