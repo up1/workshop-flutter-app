@@ -69,7 +69,11 @@ class ProductScreenState extends State<ProductScreen> {
           child: Icon(Icons.menu_rounded, color: Colors.blue, size: 25),
         ),
         title: Center(
-          child: Text("Product Listing", style: TextStyle(color: Colors.blue)),
+          child: Text(
+            key: Key("product_listing"),
+            "Product Listing",
+            style: TextStyle(color: Colors.blue),
+          ),
         ),
       ),
       body: SafeArea(
