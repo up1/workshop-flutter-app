@@ -34,4 +34,34 @@ void main() {
     // Verify that the cart icon is displayed.
     expect(find.byIcon(Icons.shopping_cart_rounded), findsOneWidget);
   });
+
+  testWidgets(
+    'Add more than one product to cart and check number of product in cart',
+    (WidgetTester tester) async {
+      // Initialize the cart view model.
+      final cartViewModel = CartViewModel();
+      await tester.pumpWidget(
+        ChangeNotifierProvider<CartViewModel>(
+          create: (_) => cartViewModel,
+          child: const MaterialApp(home: MyApp()),
+        ),
+      );
+
+      // Tap key="add" to add a product to cart
+      await tester.tap(find.byKey(Key("add")).first);
+      await tester.pump();
+
+      // Tap key="add" in second position to add a product to cart
+      await tester.tap(find.byKey(Key("add")).at(1));
+      await tester.pump();
+
+      // Verify that the product is added to cart
+      expect(find.text("2"), findsOneWidget);
+
+      final cartCounter = tester.widget<Text>(
+        find.byKey(const Key("cart_counter")),
+      );
+      expect(cartCounter.data, "2", reason: "Cart counter is not 2");
+    },
+  );
 }

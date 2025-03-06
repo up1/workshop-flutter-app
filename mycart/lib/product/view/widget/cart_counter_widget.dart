@@ -12,6 +12,7 @@ class CartCounter extends StatelessWidget {
       decoration: BoxDecoration(color: Colors.red[800], shape: BoxShape.circle),
       child: Center(
         child: Text(
+          key: const Key("cart_counter"),
           count.isNotEmpty ? count : "0",
           style: TextStyle(color: Colors.white, fontSize: 7),
         ),
