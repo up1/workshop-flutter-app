@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hello/screen/noti/noti_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -35,11 +36,21 @@ class HomeScreen extends StatelessWidget {
         actions: [
           IconButton(
             icon: Icon(Icons.notifications, color: Colors.white),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => NotificationScreen()),
+              );
+            },
           ),
           IconButton(
             icon: Icon(Icons.shopping_cart, color: Colors.white),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => NotificationScreen()),
+              );
+            },
           ),
         ],
       ),
@@ -94,24 +105,6 @@ class HomeScreen extends StatelessWidget {
             ),
           ],
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        selectedItemColor: Colors.purple,
-        unselectedItemColor: Colors.grey,
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'หน้าแรก'),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.card_giftcard),
-            label: 'บิ๊กพอยต์',
-          ),
-          BottomNavigationBarItem(icon: Icon(Icons.grid_view), label: 'สินค้า'),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.favorite),
-            label: 'ลิสต์ของฉัน',
-          ),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'บัญชี'),
-        ],
       ),
     );
   }
