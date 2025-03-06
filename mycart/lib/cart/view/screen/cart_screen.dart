@@ -31,6 +31,7 @@ class CartScreenState extends State<CartScreen> {
                 width: double.infinity,
                 child: ListView.builder(
                   key: Key("cart_list"),
+                  scrollDirection: Axis.vertical,
                   itemCount: value.count,
                   itemBuilder: (context, index) {
                     return Dismissible(
@@ -51,7 +52,6 @@ class CartScreenState extends State<CartScreen> {
                     );
                   },
                   shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
                 ),
               ),
             ),
