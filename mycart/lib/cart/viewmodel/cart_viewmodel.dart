@@ -7,7 +7,7 @@ class CartViewModel with ChangeNotifier {
 
   CartViewModel() {
     CartPreferences().loadCart().then((value) {
-      lists = value as List<Product>;
+      lists = value;
       notifyListeners();
     });
   }
