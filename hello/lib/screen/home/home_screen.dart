@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:hello/screen/noti/noti_screen.dart';
 
@@ -72,9 +73,15 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
-            Image.network(
-              'https://st.bigc-cs.com/cdn-cgi/image/format=webp,quality=90/public/media/banner/th/202502/552fb3b1-2c95-485b-8b35-1f40e74b22f3.jpg',
-              fit: BoxFit.cover,
+            // Image.network(
+            //   'https://st.bigc-cs.com/cdn-cgi/image/format=webp,quality=90/public/media/banner/th/202502/552fb3b1-2c95-485b-8b35-1f40e74b22f3.jpg',
+            //   fit: BoxFit.cover,
+            // ),
+            CachedNetworkImage(
+              imageUrl:
+                  "https://st.bigc-cs.com/cdn-cgi/image/format=webp,quality=90/public/media/banner/th/202502/552fb3b1-2c95-485b-8b35-1f40e74b22f3.jpg",
+              placeholder: (context, url) => CircularProgressIndicator(),
+              errorWidget: (context, url, error) => Icon(Icons.error),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 16.0),
