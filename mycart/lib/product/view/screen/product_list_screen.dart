@@ -23,7 +23,12 @@ class ProductScreenState extends State<ProductScreen> {
             key: Key("cart"),
             onTap: () {
               // Use app router to navigate to cart screen
-              AppRouter.generateRoute(RouteSettings(name: AppRouter.cartRoute));
+              Navigator.push(
+                context,
+                AppRouter.generateRoute(
+                  RouteSettings(name: AppRouter.cartRoute),
+                ),
+              );
             },
             child: Padding(
               padding: const EdgeInsets.only(
