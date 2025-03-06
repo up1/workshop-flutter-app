@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mycart/cart/viewmodel/cart_viewmodel.dart';
 import 'package:mycart/product/view/screen/product_list_screen.dart';
+import 'package:mycart/product/viewmodel/product_viewmodel.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -14,7 +15,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [ChangeNotifierProvider(create: (context) => CartViewModel())],
+      providers: [
+        ChangeNotifierProvider(create: (context) => CartViewModel()),
+        ChangeNotifierProvider(create: (context) => ProductViewModel()),
+      ],
       child: MaterialApp(
         title: 'Demo with MVVM',
         debugShowCheckedModeBanner: false,
