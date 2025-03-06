@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:mycart/cart/viewmodel/cart_viewmodel.dart';
 import 'package:mycart/product/view/widget/cart_counter_widget.dart';
 import 'package:mycart/product/view/widget/product_item_widget.dart';
 import 'package:mycart/router.dart';
+import 'package:provider/provider.dart';
 
 class ProductScreen extends StatefulWidget {
   const ProductScreen({super.key});
@@ -51,8 +53,10 @@ class ProductScreenState extends State<ProductScreen> {
                     top: 0,
                     left: 0,
                     right: 0,
-                    child: CartCounter(
-                      count: "0",
+                    child: Consumer<CartViewModel>(
+                      builder:
+                          (context, value, child) =>
+                              CartCounter(count: value.count.toString()),
                     ), // Implement the CartCounter with state management
                   ),
                 ],

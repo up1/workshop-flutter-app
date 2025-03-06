@@ -1,5 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:mycart/cart/viewmodel/cart_viewmodel.dart';
+import 'package:provider/provider.dart';
 
 class ProductItem extends StatelessWidget {
   const ProductItem({
@@ -55,32 +57,35 @@ class ProductItem extends StatelessWidget {
               ),
             ),
           ),
-          InkWell(
-            key: Key("add"),
-            onTap: () {
-              // TODO: Add item to cart
-            },
-            child: Padding(
-              padding: const EdgeInsets.all(2.0),
-              child: Container(
-                height: screenSize.height * 0.03,
-                width: screenSize.width * 0.15,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  color: Colors.blue,
-                ),
-                child: Center(
-                  child: Text(
-                    "ADD",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 11,
-                      fontWeight: FontWeight.bold,
+          Consumer<CartViewModel>(
+            builder:
+                (context, value, child) => InkWell(
+                  key: Key("add"),
+                  onTap: () {
+                    value.add(image, itemName);
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.all(2.0),
+                    child: Container(
+                      height: screenSize.height * 0.03,
+                      width: screenSize.width * 0.15,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        color: Colors.blue,
+                      ),
+                      child: Center(
+                        child: Text(
+                          "ADD",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 11,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ),
           ),
         ],
       ),
