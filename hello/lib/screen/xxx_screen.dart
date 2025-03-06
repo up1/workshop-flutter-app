@@ -31,7 +31,16 @@ class XxxScreenState extends State<XxxScreen> {
     return Scaffold(
       backgroundColor: Color(0xFFB0003A),
 
-      body: Container(padding: EdgeInsets.all(8), child: _tabs[_selectedTab]),
+      body: RefreshIndicator(
+        onRefresh: () async {
+          // Add your refresh logic here
+          await Future.delayed(Duration(seconds: 2)); // Simulate network delay
+        },
+        child: Container(
+          padding: EdgeInsets.all(8),
+          child: _tabs[_selectedTab],
+        ),
+      ),
 
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
