@@ -4,16 +4,18 @@ import 'package:mycart/product/data/product_remote_data.dart';
 import 'package:mycart/product/model/product_model.dart';
 
 class ProductViewModel with ChangeNotifier {
-  List<Product> lists = List<Product>.empty(growable: true);
+  List<Product> lists = [];
+  final ProductRemoteDataSource productRemoteDataSource;
 
-  ProductViewModel() {
+  ProductViewModel({ProductRemoteDataSource? productRemoteDataSource})
+    : productRemoteDataSource =
+          productRemoteDataSource ??
+          ProductRemoteDataSourceImpl(client: http.Client()) {
     _loadProducts();
   }
 
   Future<void> _loadProducts() async {
-    final productResponse = await ProductRemoteDataSourceImpl(
-      client: http.Client(),
-    ).getProducts(limit: 5);
+    final productResponse = await productRemoteDataSource.getProducts(limit: 5);
     lists = productResponse.products;
     notifyListeners();
   }

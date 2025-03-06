@@ -2,18 +2,69 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mycart/cart/viewmodel/cart_viewmodel.dart';
 
-import 'package:mycart/main.dart';
+import 'package:mycart/product/data/product_remote_data.dart';
+import 'package:mycart/product/data/product_response_model.dart';
+import 'package:mycart/product/view/screen/product_list_screen.dart';
 import 'package:mycart/product/view/widget/product_item_widget.dart';
+import 'package:mycart/product/viewmodel/product_viewmodel.dart';
 import 'package:provider/provider.dart';
+
+class MockProductRemoteDataSource implements ProductRemoteDataSource {
+  @override
+  Future<ProductResponseModel> getProducts({required int limit}) async {
+    return ProductResponseModel.fromJson([
+      {
+        "id": 1,
+        "title": "Product 1",
+        "price": 100,
+        "description": "Description 1",
+        "category": "Category 1",
+        "thumbnail": "https://dummyimage.com/600x400/000/fff",
+      },
+      {
+        "id": 2,
+        "title": "Product 2",
+        "price": 200,
+        "description": "Description 2",
+        "category": "Category 2",
+        "thumbnail": "https://dummyimage.com/600x400/000/fff",
+      },
+      {
+        "id": 3,
+        "title": "Product 3",
+        "price": 300,
+        "description": "Description 3",
+        "category": "Category 3",
+        "thumbnail": "https://dummyimage.com/600x400/000/fff",
+      },
+      {
+        "id": 4,
+        "title": "Product 4",
+        "price": 400,
+        "description": "Description 4",
+        "category": "Category 4",
+        "thumbnail": "https://dummyimage.com/600x400/000/fff",
+      },
+    ]);
+  }
+}
 
 void main() {
   testWidgets('List of products in first page', (WidgetTester tester) async {
     // Initialize the cart view model.
     final cartViewModel = CartViewModel();
+    final productViewModel = ProductViewModel(
+      productRemoteDataSource: MockProductRemoteDataSource(),
+    );
     await tester.pumpWidget(
-      ChangeNotifierProvider<CartViewModel>(
-        create: (_) => cartViewModel,
-        child: const MaterialApp(home: MyApp()),
+      MultiProvider(
+        providers: [
+          ChangeNotifierProvider<CartViewModel>(create: (_) => cartViewModel),
+          ChangeNotifierProvider<ProductViewModel>(
+            create: (_) => productViewModel,
+          ),
+        ],
+        child: const MaterialApp(home: ProductScreen()),
       ),
     );
 
@@ -40,10 +91,18 @@ void main() {
     (WidgetTester tester) async {
       // Initialize the cart view model.
       final cartViewModel = CartViewModel();
+      final productViewModel = ProductViewModel(
+        productRemoteDataSource: MockProductRemoteDataSource(),
+      );
       await tester.pumpWidget(
-        ChangeNotifierProvider<CartViewModel>(
-          create: (_) => cartViewModel,
-          child: const MaterialApp(home: MyApp()),
+        MultiProvider(
+          providers: [
+            ChangeNotifierProvider<CartViewModel>(create: (_) => cartViewModel),
+            ChangeNotifierProvider<ProductViewModel>(
+              create: (_) => productViewModel,
+            ),
+          ],
+          child: const MaterialApp(home: ProductScreen()),
         ),
       );
 
