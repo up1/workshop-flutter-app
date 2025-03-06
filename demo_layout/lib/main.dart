@@ -1,3 +1,4 @@
+import 'package:demo_layout/home_v1.dart';
 import 'package:demo_layout/screens/main_home_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -13,8 +14,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(useMaterial3: true),
-      // home: const HomePageV1(),
-      home: const MainHomeScreen(),
+      home: const HomePageV1(),
+      // home: const MainHomeScreen(),
     );
   }
 }
