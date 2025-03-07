@@ -74,7 +74,7 @@ class BeerBuilder extends StatelessWidget {
                   FutureBuilder<String>(
                     future: getBeerTypeName(beer.typeId),
                     builder: (context, snapshot) {
-                      return Text('Breed: ${snapshot.data}');
+                      return Text('Type: ${snapshot.data}');
                     },
                   ),
                 ],
