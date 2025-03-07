@@ -3,7 +3,7 @@ import 'package:mybeer/data/database_data.dart';
 import 'package:mybeer/model/beer_type.dart';
 
 class BeerTypeFormScreen extends StatefulWidget {
-  const BeerTypeFormScreen({Key? key}) : super(key: key);
+  const BeerTypeFormScreen({super.key});
 
   @override
   BeerTypeFormScreenState createState() => BeerTypeFormScreenState();

@@ -15,7 +15,7 @@ class Beer {
   });
 
   Map<String, dynamic> toMap() {
-    return {'id': id, 'name': name, 'color': color.value, 'typeId': typeId};
+    return {'id': id, 'name': name, 'color': color.toARGB32, 'typeId': typeId};
   }
 
   factory Beer.fromMap(Map<String, dynamic> map) {

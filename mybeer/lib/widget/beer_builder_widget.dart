@@ -56,7 +56,7 @@ class BeerBuilder extends StatelessWidget {
                 color: Colors.grey[200],
               ),
               alignment: Alignment.center,
-              child: FaIcon(FontAwesomeIcons.beer, size: 18.0),
+              child: FaIcon(FontAwesomeIcons.beerMugEmpty, size: 18.0),
             ),
             SizedBox(width: 20.0),
             Expanded(

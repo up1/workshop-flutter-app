@@ -105,7 +105,7 @@ class HomeScreenState extends State<HomeScreen> {
                     .then((_) => setState(() {}));
               },
               heroTag: 'addBeer',
-              child: FaIcon(FontAwesomeIcons.beer),
+              child: FaIcon(FontAwesomeIcons.beerMugEmpty),
             ),
           ],
         ),
