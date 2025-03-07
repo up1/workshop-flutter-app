@@ -64,7 +64,7 @@ class DatabaseService {
     );
   }
 
-  Future<void> insertDog(Beer beer) async {
+  Future<void> insertBeer(Beer beer) async {
     final db = await _databaseService.database;
     await db.insert(
       'beers',

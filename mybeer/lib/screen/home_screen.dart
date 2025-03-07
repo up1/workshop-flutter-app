@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mybeer/data/database_data.dart';
 import 'package:mybeer/model/beer.dart';
 import 'package:mybeer/model/beer_type.dart';
+import 'package:mybeer/screen/beer_type_form_screen.dart';
 import 'package:mybeer/widget/beer_builder_widget.dart';
 import 'package:mybeer/widget/beer_type_builder_widget.dart';
 
@@ -78,14 +79,14 @@ class HomeScreenState extends State<HomeScreen> {
           children: [
             FloatingActionButton(
               onPressed: () {
-                // Navigator.of(context)
-                //     .push(
-                //       MaterialPageRoute(
-                //         builder: (_) => BeerTypeFormPage(),
-                //         fullscreenDialog: true,
-                //       ),
-                //     )
-                //     .then((_) => setState(() {}));
+                Navigator.of(context)
+                    .push(
+                      MaterialPageRoute(
+                        builder: (_) => BeerTypeFormScreen(),
+                        fullscreenDialog: true,
+                      ),
+                    )
+                    .then((_) => setState(() {}));
               },
               heroTag: 'addBeerType',
               child: FaIcon(FontAwesomeIcons.plus),
